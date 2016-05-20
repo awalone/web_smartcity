@@ -1,0 +1,54 @@
+<div class="container-fluid laporan">
+    <div class="row">
+        <div class="col-md-12" style="background-color: whitesmoke;">
+            <h3>Form Tambah Warga</h3>
+            <hr>
+            <div class="row">
+                <div class="alert alert-danger" ng-hide="error_message == ''" role="alert">{{error_message}}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <form name="inputForm" ng-submit="tambahWarga(inputForm.$valid)">
+                        <div class="row">
+                            <div class="col-md-2">No.KTP</div>
+                            <div class="col-md-8"><input ng-minlength="3" type="number" name="ktp" id="ktp" ng-model="user.ktp" class="form-control" required></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Nama</div>
+                            <div class="col-md-8"><input ng-minlength="3" type="text" name="nama" id="nama" ng-model="user.nama" class="form-control" required></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Email</div>
+                            <div class="col-md-8">
+                                <input type="email" name="email" id="email" ng-model="user.email" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Jenis Kelamain</div>
+                            <div class="col-md-8">
+                                <div class="btn-group">
+                                    <label class="btn btn-primary" ng-model="user.jk" btn-radio="'laki-laki'">Laki-laki</label>
+                                    <label class="btn btn-primary" ng-model="user.jk" btn-radio="'perempuan'">Perempuan</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">No.Telepon</div>
+                            <div class="col-md-8">
+                                <input ng-minlength="3" type="text" ng-pattern="/^\d+$/" name="no_telp" id="no_telp" ng-model="user.no_telp" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Alamat</div>
+                            <div class="col-md-8"><input ng-minlength="3" type="text" name="alamat" id="alamat" ng-model="user.alamat" class="form-control" required></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"><a href="#/daengsampah/daftar-warga" class="btn btn-default form-control">Batalkan</a> </div>
+                            <div class="col-md-offset-2 col-md-4"><button type="submit" class="btn btn-primary form-control" ng-class="{'disabled':inputForm.$invalid}">Simpan</button> </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

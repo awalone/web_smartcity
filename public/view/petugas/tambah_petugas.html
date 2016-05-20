@@ -1,0 +1,29 @@
+<div class="container-fluid laporan">
+    <div class="row">
+        <div class="col-md-12" style="background-color: whitesmoke;">
+            <h3>Form Tambah Petugas</h3>
+            <hr>
+            <div class="row">
+                <div class="alert alert-danger" ng-hide="error_message == ''" role="alert">{{error_message}}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <form name="inputForm" ng-submit="tambahPetugas(inputForm.$valid)">
+                        <div class="row">
+                            <div class="col-md-2">No.KTP</div>
+                            <div class="col-md-8"><input ng-minlength="3" type="number" name="ktp" id="ktp" ng-model="user.ktp" class="form-control" required></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Nama</div>
+                            <div class="col-md-8"><input ng-minlength="3" type="text" name="nama" id="nama" ng-model="user.nama" class="form-control" required></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4"><a href="#/daengsampah/daftar-petugas" class="btn btn-default form-control">Batalkan</a> </div>
+                            <div class="col-md-4"><button type="submit" class="btn btn-primary form-control" ng-disabled="inputForm.$invalid">Simpan</button> </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

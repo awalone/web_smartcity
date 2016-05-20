@@ -1,0 +1,109 @@
+<div class="container-fluid laporan">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Saring Berdasarkan Tanggal-->
+            <div class="form-group">
+                <label for="filter" class="col-sm-2">Filter Tanggal</label>
+
+                <div class="col-sm-3">
+                    <!--<input type="text" ng-model="search.waktu" id="filter" class="form-control" placeholder="Search!!">-->
+                    <p class="input-group">
+                        <input id="filter" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt.waktu"
+                               is-open="status.opened" min-date="minDate" max-date="maxDate"
+                               datepicker-options="dateOptions" ng-required="true"
+                               close-text="Close"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i
+                                class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+                <div class="col-sm-5">
+                    <a class="btn btn-info" ng-href="public\models\printLaporan.php?tgl={{dt.Fwaktu}}" target="_blank"><i class="fa fa-print"></i> Cetak Laporan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover table-center">
+                    <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th ng-click="orderBy('id_keluhan')">ID Laporan <span ng-show="predicate == 'id_keluhan'"
+                                                                              class="fa pull-right"
+                                                                              ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('nama')">Nama Pelapor <span ng-show="predicate == 'nama'"
+                                                                          class="fa pull-right"
+                                                                          ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th>Gambar</th>
+                        <th ng-click="orderBy('lokasi')">Lokasi<span ng-show="predicate == 'lokasi'"
+                                                                     class="fa pull-right"
+                                                                     ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('waktu')">Waktu Laporan <span ng-show="predicate == 'waktu'"
+                                                                            class="fa pull-right"
+                                                                            ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('alamat')">Alamat<span ng-show="predicate == 'alamat'"
+                                                                     class="fa pull-right"
+                                                                     ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('keluhan')">Keluhan <span ng-show="predicate == 'keluhan'"
+                                                                        class="fa pull-right"
+                                                                        ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('waktu_selesai')">Waktu Pengangkutan <span ng-show="predicate == 'waktu_selesai'"
+                                                                       class="fa pull-right"
+                                                                       ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('status_keluhan')">Status<span ng-show="predicate == 'status_keluhan'"
+                                                                        class="fa pull-right"
+                                                                        ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th>Petugas</th>
+                        <th>Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in filteredLaporan = ( laporan | orderBy:predicate:reverse| filter: dt.Fwaktu) | startFrom: (currentPage -1) * pageSize | limitTo: pageSize ">
+                        <td>{{$index+1 + (currentPage -1) * pageSize}}</td>
+                        <td>{{data.id_keluhan}}</td>
+                        <td>{{data.nama}}</td>
+                        <td><img ng-src="assets/img/{{data.gambar}}" class="img-custom" alt="gambar"></td>
+                        <td>{{data.latitude}},{{data.longitude}}</td>
+                        <td>{{data.waktu}}</td>
+                        <td>{{data.alamat}}</td>
+                        <td>{{data.keluhan}}</td>
+                        <td>{{data.waktu_selesai}}</td>
+                        <td>{{data.status_keluhan}}</td>
+                        <td>
+                            <p ng-show="data.nama_petugas.nama">{{data.nama_petugas.nama}}</p>
+                            <p ng-show="!data.nama_petugas.nama">Tidak Ada Petugas Terpilih!</p>
+                            <select ng-hide="data.nama_petugas.nama || status_user == 'warga'" ng-model="user.id[$index]">
+                                <option ng-repeat="d in data.petugas" value="{{d.ktp}}" ng-selected="d.status == data.status">
+                                    {{d.nama}}
+                                </option>
+                            </select>
+                            <a ng-show="(data.ktp_petugas == '' || data.ktp_petugas == NULL) && status_user == 'admin'" class="btn btn-primary" href="" ng-click="setPetugas(user.id[$index],data.id_keluhan)">Pilih Petugas</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" ng-click="hapusKeluhan(data.id_keluhan)" confirm="Anda Yakin?, {{data.id_keluhan}}?" confirm-ok="Ya" confirm-cancel="Tidak"><i class="fa fa-remove"></i> Hapus</a>
+                        </td>
+                    </tr>
+                    <tr ng-show="!filteredLaporan.length">
+                        <td colspan="10">Tidak Ada Data!!</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12 text-center">
+                <pagination total-items="filteredLaporan.length" ng-model="currentPage"
+                            items-per-page="pageSize"></pagination>
+            </div>
+        </div>
+    </div>
+</div>

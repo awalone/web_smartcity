@@ -1,0 +1,18 @@
+[18-Apr-2016 02:51:28 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:03:08 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:15:51 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:16:53 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:17:04 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:39:19 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:42:13 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:51:50 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:52:00 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:53:26 America/Chicago] PHP Warning:  mysqli_query(): Empty query in /home/awalone/public_html/thesis/public/models/androidRegister.php on line 16
+[18-Apr-2016 03:53:26 America/Chicago] PHP Warning:  mysqli_query(): Empty query in /home/awalone/public_html/thesis/public/models/androidRegister.php on line 21
+[18-Apr-2016 03:55:11 America/Chicago] PHP Warning:  mysqli_query(): Empty query in /home/awalone/public_html/thesis/public/models/androidRegister.php on line 16
+[18-Apr-2016 03:55:11 America/Chicago] PHP Warning:  mysqli_query(): Empty query in /home/awalone/public_html/thesis/public/models/androidRegister.php on line 21
+[18-Apr-2016 03:55:47 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:58:58 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:59:00 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 03:59:03 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4
+[18-Apr-2016 04:00:40 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/awalone/public_html/thesis/public/models/androidLogin.php on line 4

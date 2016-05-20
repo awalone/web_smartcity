@@ -1,0 +1,88 @@
+<div class="container-fluid laporan">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Saring Berdasarkan Tanggal-->
+            <div class="form-group">
+                <label for="filter" class="col-sm-2">Pencarian User</label>
+
+                <div class="col-sm-5">
+                    <!--<input type="text" ng-model="search.waktu" id="filter" class="form-control" placeholder="Search!!">-->
+                    <p class="input-group">
+                        <input id="filter" type="text" class="form-control" ng-model="search.nama" placeholder="Ketikkan nama user yang ingin dicari"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default"><i
+                                    class="fa fa-search"></i></button>
+                        </span>
+                    </p>
+                </div>
+                <div class="col-sm-5">
+                    <a class="btn btn-info" href="#/daengsampah/daftar-warga/tambah-warga"><i class="fa fa-plus"></i> Tambah Warga</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover table-center">
+                    <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th ng-click="orderBy('ktp')">No.KTP<span ng-show="predicate == 'ktp'"
+                                                                              class="fa pull-right"
+                                                                              ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('nama')">Nama<span ng-show="predicate == 'nama'"
+                                                                          class="fa pull-right"
+                                                                          ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('jenis_kelamin')">Jenis Kelamin<span ng-show="predicate == 'jenis_kelamin'"
+                                                                          class="fa pull-right"
+                                                                          ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('no_telp')">No Telepon<span ng-show="predicate == 'no_telp'"
+                                                                                   class="fa pull-right"
+                                                                                   ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('email')">Email<span ng-show="predicate == 'email'"
+                                                                 class="fa pull-right"
+                                                                 ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('alamat')">Alamat<span ng-show="predicate == 'alamat'"
+                                                                     class="fa pull-right"
+                                                                     ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="orderBy('aksi')">Aksi <span ng-show="predicate == 'aksi'"
+                                                                  class="fa pull-right"
+                                                                  ng-class="{'fa-chevron-up': reverse,'fa-chevron-down':!reverse}"></span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in filteredLaporan = ( laporan | orderBy:predicate:reverse| filter: search) | startFrom: (currentPage -1) * pageSize | limitTo: pageSize ">
+                        <td>{{$index+1 + (currentPage -1) * pageSize}}</td>
+                        <td>{{data.ktp}}</td>
+                        <td>{{data.nama}}</td>
+                        <td>{{data.jenis_kelamin}}</td>
+                        <td>{{data.no_telp}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.alamat}}</td>
+                        <td>
+                            <a class="btn btn-default" ng-href="#/daengsampah/daftar-warga/edit/{{data.ktp}}"><i class="fa fa-edit"></i> Edit</a>
+                            <a class="btn btn-danger" ng-click="hapusWarga(data.ktp)" confirm="Anda Yakin?, {{data.ktp}}?" confirm-ok="Ya" confirm-cancel="Tidak"><i class="fa fa-remove"></i> Hapus</a>
+                        </td>
+                    </tr>
+                    <tr ng-show="!filteredLaporan.length">
+                        <td colspan="9">Data Tidak Ditemukan!!</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12 text-center">
+                <pagination total-items="filteredLaporan.length" ng-model="currentPage"
+                            items-per-page="pageSize"></pagination>
+            </div>
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

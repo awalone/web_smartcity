@@ -1,0 +1,2 @@
+[10-May-2016 02:50:17 America/Chicago] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'awalone'@'localhost' (using password: YES) in /home/awalone/public_html/thesis/uploads.php on line 3
+[10-May-2016 02:51:35 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'awalone'@'localhost' (using password: YES) in /home/awalone/public_html/thesis/uploads.php on line 3

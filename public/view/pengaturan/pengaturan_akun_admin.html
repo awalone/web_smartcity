@@ -1,0 +1,27 @@
+<div class="container-fluid laporan">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <form name="inputForm" ng-submit="submitForm(inputForm.$valid)">
+                <div class="row">
+                    <div class="col-md-2">No.KTP</div>
+                    <div class="col-md-8"><input type="text" name="ktp" id="ktp" ng-model="petugas.id_akun" class="form-control" disabled></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Nama Lengkap</div>
+                    <div class="col-md-8"><input type="text" name="nama" id="status" ng-model="petugas.nama" class="form-control" disabled></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Nama Pengguna</div>
+                    <div class="col-md-8"><input type="text" name="username" id="username" ng-model="petugas.username" class="form-control" required></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Kata Sandi</div>
+                    <div class="col-md-8"><input type="text" name="password" id="password" ng-model="petugas.kata_sandi" class="form-control" required></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10"><button type="submit" class="btn btn-danger form-control" ng-disabled="inputForm.$invalid || success == 1"}">Ubah & Simpan</button> </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

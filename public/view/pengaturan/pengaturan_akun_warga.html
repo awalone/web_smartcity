@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+            <h3>Rubah Data Akun </h3>
+            <form name="inputForm" class="form-horizontal" ng-submit="submitForm(inputForm.$valid)" novalidate>
+                <div class="form-group">
+                    <label class="col-md-4">No.KTP</label>
+                    <div class="col-md-8">
+                        <input ng-minlength="3" type="number" name="ktp" id="ktp" ng-model="data.ktp" class="form-control" required readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">Email</label>
+                    <div class="col-md-8">
+                        <input type="email" name="email" id="email" ng-model="data.email" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">Nama</label>
+                    <div class="col-md-8">
+                        <input ng-minlength="3" type="text" name="nama" id="nama" ng-model="data.nama" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">Jenis Kelamain</label>
+                    <div class="col-md-8">
+                        <div class="btn-group">
+                            <label class="btn btn-primary" ng-model="data.jk" btn-radio="'laki-laki'">Laki-laki</label>
+                            <label class="btn btn-primary" ng-model="data.jk" btn-radio="'perempuan'">Perempuan</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">Kata Sandi</label>
+                    <div class="col-md-8">
+                        <div class="btn-group">
+                            <input ng-minlength="1" type="password" name="pass" id="pass" ng-model="data.pass" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">Konfirmasi Kata Sandi</label>
+                    <div class="col-md-8">
+                        <div class="btn-group">
+                            <input ng-minlength="1" compare-to="inputForm.pass" ng-model="data.repass" type="password" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">No.Telepon</label>
+                    <div class="col-md-8">
+                        <input ng-minlength="3" type="number" name="no_telp" id="no_telp" ng-model="data.no_telp" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">Alamat</label>
+                    <div class="col-md-8">
+                        <textarea name="alamat" id="alamat" class="form-control" ng-model="data.alamat" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <div class="col-md-offset-2 col-md-4">
+                        <a class="btn btn-default form-control" href="#/daengsampah/beranda">Batalkan</a>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" class="btn btn-primary form-control" value="Simpan" ng-disabled="inputForm.$invalid">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<pre>{{data|json}}</pre>
